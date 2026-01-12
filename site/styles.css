@@ -526,7 +526,7 @@ html.js .reveal.is-visible {
 
 .mini-bar.before .menu-right {
   gap: 6px;
-  transform: translateX(-52px);
+  transform: none;
 }
 
 .mini-bar.before .menu-right .status-icon {
