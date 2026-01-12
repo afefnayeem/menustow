@@ -1,5 +1,5 @@
 :root {
-  color-scheme: only light;
+  color-scheme: light dark;
   --bg: #f6f1e6;
   --ink: #1c1a17;
   --muted: #4f4b45;
@@ -9,6 +9,17 @@
   --card: rgba(255, 255, 255, 0.72);
   --border: rgba(28, 26, 23, 0.12);
   --shadow: 0 18px 40px rgba(28, 26, 23, 0.18);
+  --bg-gradient: radial-gradient(circle at 15% 20%, #fff6e9 0%, #f6f1e6 45%, #efe6d8 100%);
+  --orbit-glow: rgba(25, 127, 127, 0.18);
+  --halo-glow: rgba(225, 161, 75, 0.2);
+  --bar-bg: #fff;
+  --bar-border: rgba(28, 26, 23, 0.08);
+  --stow-pocket-start: #ffe5c1;
+  --stow-pocket-end: #f0c27d;
+  --fold-color: rgba(15, 92, 92, 0.35);
+  --step-bg: rgba(255, 255, 255, 0.6);
+  --cta-panel-bg: linear-gradient(135deg, #fff7eb, #f3dcc0);
+  --cta-panel-border: rgba(28, 26, 23, 0.1);
 }
 
 *,
@@ -20,7 +31,7 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", "Avenir Next", sans-serif;
-  background: radial-gradient(circle at 15% 20%, #fff6e9 0%, #f6f1e6 45%, #efe6d8 100%);
+  background: var(--bg-gradient);
   color: var(--ink);
   min-height: 100vh;
   overflow-x: hidden;
@@ -40,7 +51,7 @@ body {
   width: 520px;
   height: 520px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(25, 127, 127, 0.18), transparent 70%);
+  background: radial-gradient(circle, var(--orbit-glow), transparent 70%);
   top: -160px;
   right: -120px;
   filter: blur(2px);
@@ -52,7 +63,7 @@ body {
   width: 520px;
   height: 520px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(225, 161, 75, 0.2), transparent 65%);
+  background: radial-gradient(circle, var(--halo-glow), transparent 65%);
   bottom: -220px;
   left: -180px;
 }
@@ -183,8 +194,8 @@ main {
   position: relative;
   height: 70px;
   border-radius: 40px;
-  background: #fff;
-  border: 1px solid rgba(28, 26, 23, 0.08);
+  background: var(--bar-bg);
+  border: 1px solid var(--bar-border);
   display: flex;
   align-items: center;
   padding: 0 26px;
@@ -229,7 +240,7 @@ main {
   width: 110px;
   height: 46px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ffe5c1, #f0c27d);
+  background: linear-gradient(135deg, var(--stow-pocket-start), var(--stow-pocket-end));
   display: grid;
   place-items: center;
 }
@@ -239,7 +250,7 @@ main {
   width: 52px;
   height: 8px;
   border-radius: 8px;
-  background: rgba(15, 92, 92, 0.35);
+  background: var(--fold-color);
   position: absolute;
 }
 
@@ -303,7 +314,7 @@ main {
   grid-template-columns: auto 1fr;
   gap: 18px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--step-bg);
   border-radius: 22px;
   padding: 20px;
   border: 1px solid var(--border);
@@ -321,10 +332,10 @@ main {
   gap: 24px;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, #fff7eb, #f3dcc0);
+  background: var(--cta-panel-bg);
   border-radius: 28px;
   padding: 28px;
-  border: 1px solid rgba(28, 26, 23, 0.1);
+  border: 1px solid var(--cta-panel-border);
 }
 
 .cta-panel h2 {
@@ -376,6 +387,31 @@ main {
 
   .btn {
     transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11120f;
+    --ink: #f4efe6;
+    --muted: #b8ae9e;
+    --accent: #4bbcbc;
+    --accent-dark: #2b9a9a;
+    --accent-warm: #f0b36b;
+    --card: rgba(23, 24, 21, 0.86);
+    --border: rgba(244, 239, 230, 0.12);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    --bg-gradient: radial-gradient(circle at 15% 20%, #222522 0%, #151613 45%, #0f100d 100%);
+    --orbit-glow: rgba(75, 188, 188, 0.2);
+    --halo-glow: rgba(240, 179, 107, 0.18);
+    --bar-bg: #151715;
+    --bar-border: rgba(244, 239, 230, 0.12);
+    --stow-pocket-start: #3b2f1f;
+    --stow-pocket-end: #7b5b30;
+    --fold-color: rgba(75, 188, 188, 0.45);
+    --step-bg: rgba(23, 24, 21, 0.72);
+    --cta-panel-bg: linear-gradient(135deg, #1d1e1a, #2a2318);
+    --cta-panel-border: rgba(244, 239, 230, 0.12);
   }
 }
 
