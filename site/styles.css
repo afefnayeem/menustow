@@ -80,6 +80,7 @@ main,
   align-items: center;
   justify-content: space-between;
   padding: 28px 7vw 12px;
+  animation: rise 0.9s ease both;
 }
 
 .logo {
@@ -117,6 +118,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
   align-items: center;
+  animation: rise 1.1s ease both;
 }
 
 .hero-text h1 {
@@ -188,6 +190,9 @@ main {
   border-radius: 32px;
   padding: 32px;
   box-shadow: var(--shadow);
+  display: grid;
+  gap: 22px;
+  animation: float-in 1.2s ease both;
 }
 
 .bar {
@@ -264,6 +269,221 @@ main {
   margin-top: 16px;
   font-size: 14px;
   color: var(--muted);
+}
+
+.notch-lab {
+  display: grid;
+  gap: 12px;
+}
+
+.notch-shell {
+  position: relative;
+  height: 86px;
+  border-radius: 40px;
+  background: var(--bar-bg);
+  border: 1px solid var(--bar-border);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.notch-cutout {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 48px;
+  border-radius: 0 0 24px 24px;
+  background: var(--bg);
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.notch-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.notch-track .item {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: var(--accent-dark);
+  animation: drift 4.4s ease-in-out infinite;
+}
+
+.notch-track .i2 {
+  animation-delay: 0.3s;
+  background: var(--accent);
+}
+
+.notch-track .i3 {
+  animation-delay: 0.6s;
+}
+
+.notch-track .i4 {
+  animation-delay: 0.9s;
+  background: var(--accent-warm);
+}
+
+.notch-track .i5 {
+  animation-delay: 1.2s;
+}
+
+.notch-track .i6 {
+  animation-delay: 1.5s;
+  background: var(--accent);
+}
+
+.notch-track .i7 {
+  animation-delay: 1.8s;
+}
+
+.notch-stow {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 96px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--stow-pocket-start), var(--stow-pocket-end));
+  display: grid;
+  place-items: center;
+}
+
+.hover-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.22), transparent 55%);
+  opacity: 0.7;
+  animation: pulse 3.6s ease-in-out infinite;
+}
+
+.story,
+.features,
+.behavior,
+.steps,
+.cta-panel {
+  animation: rise 1s ease both;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.story-grid article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 12px 24px rgba(28, 26, 23, 0.08);
+}
+
+.behavior-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.behavior-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(28, 26, 23, 0.12);
+  display: grid;
+  gap: 16px;
+}
+
+.behavior-visual {
+  height: 84px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mini-track {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mini-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--accent-dark);
+  animation: mini-drift 2.8s ease-in-out infinite;
+}
+
+.mini-item:nth-child(2) {
+  animation-delay: 0.2s;
+  background: var(--accent);
+}
+
+.mini-item:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.mini-item:nth-child(4) {
+  animation-delay: 0.6s;
+  background: var(--accent-warm);
+}
+
+.mini-stow {
+  position: absolute;
+  right: 16px;
+  width: 44px;
+  height: 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--stow-pocket-start), var(--stow-pocket-end));
+  opacity: 0.8;
+}
+
+.behavior-visual.pulse .wave {
+  width: 160px;
+  height: 160px;
+  border-radius: 999px;
+  border: 2px solid var(--accent);
+  animation: ripple 2.6s ease-in-out infinite;
+}
+
+.behavior-visual.tint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tint-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: var(--accent);
+  box-shadow: 0 6px 16px rgba(25, 127, 127, 0.35);
+  animation: bob 3.2s ease-in-out infinite;
+}
+
+.tint-swatch.warm {
+  background: var(--accent-warm);
+  animation-delay: 0.4s;
+}
+
+.tint-swatch.cool {
+  background: var(--accent-dark);
+  animation-delay: 0.8s;
 }
 
 .features,
@@ -380,6 +600,82 @@ main {
   }
 }
 
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes mini-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .dot {
     animation: none;
@@ -387,6 +683,22 @@ main {
 
   .btn {
     transition: none;
+  }
+
+  .site-header,
+  .hero,
+  .hero-visual,
+  .story,
+  .features,
+  .behavior,
+  .steps,
+  .cta-panel,
+  .notch-track .item,
+  .mini-item,
+  .hover-glow,
+  .behavior-visual.pulse .wave,
+  .tint-swatch {
+    animation: none;
   }
 }
 
@@ -424,5 +736,9 @@ main {
 
   .nav {
     flex-wrap: wrap;
+  }
+
+  .notch-cutout {
+    width: 120px;
   }
 }
