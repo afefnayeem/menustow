@@ -271,9 +271,9 @@ html.js .reveal.is-visible {
 .menu-bar,
 .mini-bar {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr minmax(120px, 180px) 1fr;
   align-items: center;
-  justify-content: space-between;
   height: 46px;
   padding: 0 18px;
   border-radius: 18px;
@@ -316,6 +316,8 @@ html.js .reveal.is-visible {
 }
 
 .menu-left {
+  grid-column: 1;
+  justify-self: start;
   flex: 1 1 auto;
   overflow: hidden;
 }
@@ -326,6 +328,8 @@ html.js .reveal.is-visible {
 }
 
 .menu-right {
+  grid-column: 3;
+  justify-self: end;
   flex: 0 0 auto;
   gap: 10px;
   font-variant-numeric: tabular-nums;
@@ -483,6 +487,7 @@ html.js .reveal.is-visible {
   height: 34px;
   padding: 0 12px;
   border-radius: 14px;
+  grid-template-columns: 1fr 90px 1fr;
 }
 
 .mini-bar .menu-left,
@@ -1242,5 +1247,19 @@ html.js .reveal.is-visible {
 @media (min-width: 860px) {
   .notch-compare {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .menu-bar {
+    grid-template-columns: 1fr minmax(100px, 150px) 1fr;
+  }
+
+  .menu-left span:nth-child(n + 5) {
+    display: none;
+  }
+
+  .menu-bar .notch-cutout {
+    width: 150px;
   }
 }
