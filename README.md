@@ -34,10 +34,10 @@ Download the "menustow.zip" file from the [latest release](https://github.com/ls
 
 ### Homebrew
 
-Install menustow using the following command (coming soon):
+Install via the custom tap:
 
 ```sh
-brew install --cask menustow
+brew install lswank/homebrew-tap/menustow
 ```
 
 ## Website
