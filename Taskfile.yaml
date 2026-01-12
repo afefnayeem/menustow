@@ -141,10 +141,17 @@ tasks:
     preconditions:
       - sh: command -v xcrun
         msg: "xcrun is required for notarization."
-      - sh: '[ -n "$NOTARY_PROFILE" ]'
-        msg: "Set NOTARY_PROFILE to a notarytool keychain profile name."
     cmds:
-      - xcrun notarytool submit "{{.ZIP_PATH}}" --keychain-profile "$NOTARY_PROFILE" --wait
+      - |
+        if [ -n "$NOTARY_PROFILE" ]; then
+          xcrun notarytool submit "{{.ZIP_PATH}}" --keychain-profile "$NOTARY_PROFILE" --wait
+          exit 0
+        fi
+        if [ -z "$NOTARY_KEY_ID" ] || [ -z "$NOTARY_ISSUER_ID" ] || [ -z "$NOTARY_KEY_PATH" ]; then
+          echo "Set NOTARY_PROFILE or NOTARY_KEY_ID/NOTARY_ISSUER_ID/NOTARY_KEY_PATH for notarization."
+          exit 1
+        fi
+        xcrun notarytool submit "{{.ZIP_PATH}}" --key "$NOTARY_KEY_PATH" --key-id "$NOTARY_KEY_ID" --issuer "$NOTARY_ISSUER_ID" --wait
 
   staple:
     desc: Staple notarization to the app

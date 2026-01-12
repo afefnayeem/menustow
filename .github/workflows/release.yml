@@ -33,18 +33,11 @@ jobs:
           security list-keychains -d user -s build.keychain
           security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" build.keychain
 
-      - name: Configure notarytool
+      - name: Prepare notary key
         env:
-          NOTARY_PROFILE: ${{ secrets.NOTARY_PROFILE }}
-          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
         run: |
           echo "$ASC_PRIVATE_KEY" > AuthKey.p8
-          xcrun notarytool store-credentials "$NOTARY_PROFILE" \
-            --key-id "$ASC_KEY_ID" \
-            --issuer "$ASC_ISSUER_ID" \
-            --key "AuthKey.p8"
 
       - name: Archive
         env:
@@ -57,7 +50,9 @@ jobs:
 
       - name: Notarize
         env:
-          NOTARY_PROFILE: ${{ secrets.NOTARY_PROFILE }}
+          NOTARY_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          NOTARY_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          NOTARY_KEY_PATH: AuthKey.p8
         run: task notarize
 
       - name: Staple and repackage
