@@ -104,13 +104,15 @@ main,
   position: relative;
   z-index: 1;
   color: var(--accent-dark);
-  animation: stow-away 4.8s ease-in-out infinite;
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.2) 75%, transparent 100%);
-  mask-image: linear-gradient(90deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.2) 75%, transparent 100%);
-  -webkit-mask-size: 200% 100%;
-  mask-size: 200% 100%;
+  animation: stow-away 5.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  transform-origin: left center;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 45%, rgba(0, 0, 0, 0.35) 60%, transparent 85%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 45%, rgba(0, 0, 0, 0.35) 60%, transparent 85%);
+  -webkit-mask-size: 240% 100%;
+  mask-size: 240% 100%;
   -webkit-mask-position: 0% 0%;
   mask-position: 0% 0%;
+  filter: drop-shadow(0 8px 12px rgba(15, 92, 92, 0.12));
 }
 
 .wordmark-demo {
@@ -121,6 +123,20 @@ main,
   align-items: baseline;
   gap: 4px;
   margin: 8px 0 4px;
+  position: relative;
+}
+
+.wordmark-demo::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: -2px;
+  width: 52px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(25, 127, 127, 0.25), rgba(15, 92, 92, 0.05));
+  filter: blur(0.3px);
+  opacity: 0.8;
 }
 
 .nav {
@@ -486,6 +502,80 @@ html.js .reveal.is-visible {
   gap: 24px;
 }
 
+.qa {
+  display: grid;
+  gap: 28px;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.qa-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 12px 24px rgba(28, 26, 23, 0.1);
+}
+
+.qa-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.qa-card p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.sherlock-term {
+  position: relative;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: help;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sherlock-term .tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(8px);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 10px 12px;
+  border-radius: 12px;
+  width: 220px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+}
+
+.sherlock-term .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+
+.sherlock-term:hover .tooltip,
+.sherlock-term:focus .tooltip,
+.sherlock-term:focus-visible .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .behavior-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -771,20 +861,24 @@ html.js .reveal.is-visible {
 
 @keyframes stow-away {
   0%,
-  25% {
-    transform: translateX(0);
+  22% {
+    transform: translateX(0) scale(1);
     opacity: 1;
     -webkit-mask-position: 0% 0%;
     mask-position: 0% 0%;
   }
-  55% {
-    transform: translateX(-36%);
-    opacity: 0.4;
+  45% {
+    transform: translateX(-18%) scale(0.98);
+    opacity: 0.75;
+  }
+  70% {
+    transform: translateX(-48%) scale(0.94);
+    opacity: 0.35;
     -webkit-mask-position: 100% 0%;
     mask-position: 100% 0%;
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
     opacity: 1;
     -webkit-mask-position: 0% 0%;
     mask-position: 0% 0%;
