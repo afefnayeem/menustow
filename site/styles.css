@@ -40,6 +40,16 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
 .bg-orbit,
 .bg-halo {
   position: fixed;
