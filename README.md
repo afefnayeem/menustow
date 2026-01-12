@@ -98,28 +98,23 @@ menustow uses a number of system APIs that are available starting in macOS 14. A
 
 #### Show hidden menu bar items below the menu bar
 
-![menustow bar](https://github.com/user-attachments/assets/f1429589-6186-4e1b-8aef-592219d49b9b)
-_Note: These are pre-fork images. PRs with updated screenshots are welcome!_
+_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
 
 #### Drag-and-drop interface to arrange menu bar items
 
-![Menu Bar Layout](https://github.com/user-attachments/assets/095442ba-f2d0-4bb4-9632-91e26ef8d45b)
-_Note: These are pre-fork images. PRs with updated screenshots are welcome!_
+_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
 
 #### Customize the menu bar's appearance
 
-![Menu Bar Appearance](https://github.com/user-attachments/assets/8c22c185-c3d2-49bb-971e-e1fc17df04b3)
-_Note: These are pre-fork images. PRs with updated screenshots are welcome!_
+_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
 
 #### Menu bar item search
 
-![Menu Bar Item Search](https://github.com/user-attachments/assets/d1a7df3a-4989-4077-a0b1-8e7d5a1ba5b8)
-_Note: These are pre-fork images. PRs with updated screenshots are welcome!_
+_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
 
 #### Custom menu bar item spacing
 
-![Menu Bar Item Spacing](https://github.com/user-attachments/assets/b196aa7e-184a-4d4c-b040-502f4aae40a6)
-_Note: These are pre-fork images. PRs with updated screenshots are welcome!_
+_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
 
 ## License
 
