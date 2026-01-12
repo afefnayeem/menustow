@@ -77,14 +77,8 @@ extension Task where Failure == any Error {
         @_inheritActorContext @_implicitSelfCapture
         operation: sending @escaping @isolated(any) () async throws -> Success
     ) {
-        if #available(macOS 15.0, *) {
-            self.init(name: name, priority: priority) {
-                try await Task.runWithTimeout(timeout, tolerance: tolerance, clock: clock, operation: operation)
-            }
-        } else {
-            self.init(priority: priority) {
-                try await Task.runWithTimeout(timeout, tolerance: tolerance, clock: clock, operation: operation)
-            }
+        self.init(priority: priority) {
+            try await Task.runWithTimeout(timeout, tolerance: tolerance, clock: clock, operation: operation)
         }
     }
 
@@ -112,11 +106,6 @@ extension Task where Failure == any Error {
         priority: TaskPriority? = nil,
         operation: sending @escaping @isolated(any) () async throws -> Success
     ) -> Task<Success, Failure> {
-        if #available(macOS 15.0, *) {
-            return detached(name: name, priority: priority) {
-                try await runWithTimeout(timeout, tolerance: tolerance, clock: clock, operation: operation)
-            }
-        }
         return detached(priority: priority) {
             try await runWithTimeout(timeout, tolerance: tolerance, clock: clock, operation: operation)
         }
