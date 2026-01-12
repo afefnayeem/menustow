@@ -1,0 +1,169 @@
+version: "3"
+
+dotenv: [".env"]
+
+vars:
+  PROJECT: menustow.xcodeproj
+  SCHEME: menustow
+  CONFIG: Release
+  BUILD_DIR: build
+  DERIVED_DATA: "{{.BUILD_DIR}}/DerivedData"
+  ARCHIVE_PATH: "{{.BUILD_DIR}}/menustow.xcarchive"
+  DIST_DIR: dist
+  APP_PATH: "{{.ARCHIVE_PATH}}/Products/Applications/menustow.app"
+  RUN_APP: "{{.BUILD_DIR}}/DerivedData/Build/Products/{{.CONFIG}}/menustow.app"
+  APPCAST_PATH: site/appcast.xml
+  SPARKLE_KEY: .sparkle_private_key
+  BUNDLE_ID: com.lswank.menustow
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+
+  deps:
+    desc: Resolve Swift package dependencies
+    cmds:
+      - xcodebuild -resolvePackageDependencies -project {{.PROJECT}}
+
+  clean:
+    desc: Remove build and dist artifacts
+    cmds:
+      - pkill -x menustow || true
+      - /bin/rm -rf {{.BUILD_DIR}} {{.DIST_DIR}}
+
+  run:
+    desc: Build (signed) and launch the app
+    deps: [build:signed]
+    cmds:
+      - open "{{.RUN_APP}}"
+
+  run:unsigned:
+    desc: Build (unsigned) and launch the app
+    deps: [build:unsigned]
+    cmds:
+      - open "{{.RUN_APP}}"
+
+  run:signed:
+    desc: Build (signed) and launch the app
+    deps: [build:signed]
+    cmds:
+      - open "{{.RUN_APP}}"
+
+  tcc:reset:
+    desc: Reset TCC permissions for menustow
+    cmds:
+      - pkill -x menustow || true
+      - tccutil reset Accessibility {{.BUNDLE_ID}}
+      - tccutil reset ScreenCapture {{.BUNDLE_ID}}
+      - killall tccd || true
+
+  lint:
+    desc: Run SwiftLint
+    cmds:
+      - swiftlint --config .swiftlint.yml
+
+  build:
+    desc: Build without code signing (local dev)
+    cmds:
+      - xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -derivedDataPath {{.DERIVED_DATA}} build CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+
+  build:unsigned:
+    desc: Build without code signing (local dev)
+    cmds:
+      - xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -derivedDataPath {{.DERIVED_DATA}} build CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+
+  build:signed:
+    desc: Build with code signing (requires configured signing)
+    preconditions:
+      - sh: '[ -n "$TEAM_ID" ]'
+        msg: "Set TEAM_ID in .env for signed builds."
+      - sh: '[ -n "$SIGN_IDENTITY" ]'
+        msg: "Set SIGN_IDENTITY in .env for signed builds."
+    cmds:
+      - |
+        SIGNING_ARGS=()
+        if [ -n "$TEAM_ID" ]; then
+          SIGNING_ARGS+=("DEVELOPMENT_TEAM=$TEAM_ID")
+        fi
+        if [ -n "$SIGN_IDENTITY" ]; then
+          SIGNING_ARGS+=("CODE_SIGN_STYLE=Manual")
+          SIGNING_ARGS+=("CODE_SIGN_IDENTITY=$SIGN_IDENTITY")
+        fi
+        xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -derivedDataPath {{.DERIVED_DATA}} build "${SIGNING_ARGS[@]}"
+
+  archive:
+    desc: Create a Release archive (signed)
+    preconditions:
+      - sh: '[ -n "$TEAM_ID" ]'
+        msg: "Set TEAM_ID in .env for signed archives."
+      - sh: '[ -n "$SIGN_IDENTITY" ]'
+        msg: "Set SIGN_IDENTITY in .env for signed archives."
+    cmds:
+      - |
+        SIGNING_ARGS=()
+        if [ -n "$TEAM_ID" ]; then
+          SIGNING_ARGS+=("DEVELOPMENT_TEAM=$TEAM_ID")
+        fi
+        if [ -n "$SIGN_IDENTITY" ]; then
+          SIGNING_ARGS+=("CODE_SIGN_STYLE=Manual")
+          SIGNING_ARGS+=("CODE_SIGN_IDENTITY=$SIGN_IDENTITY")
+        fi
+        xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -archivePath {{.ARCHIVE_PATH}} archive "${SIGNING_ARGS[@]}"
+
+  archive:unsigned:
+    desc: Create an archive without code signing (local dev)
+    cmds:
+      - xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -archivePath {{.ARCHIVE_PATH}} archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+
+  package:
+    desc: Zip the archived app for distribution
+    deps: [archive]
+    vars:
+      VERSION:
+        sh: xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -showBuildSettings | awk -F ' = ' '/MARKETING_VERSION/ {print $2; exit}'
+      ZIP_NAME: "menustow-{{.VERSION}}.zip"
+      ZIP_PATH: "{{.DIST_DIR}}/{{.ZIP_NAME}}"
+    cmds:
+      - mkdir -p {{.DIST_DIR}}
+      - rm -f {{.ZIP_PATH}}
+      - ditto -c -k --sequesterRsrc --keepParent "{{.APP_PATH}}" "{{.ZIP_PATH}}"
+
+  notarize:
+    desc: Notarize the zip (requires NOTARY_PROFILE keychain profile)
+    deps: [package]
+    vars:
+      VERSION:
+        sh: xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -showBuildSettings | awk -F ' = ' '/MARKETING_VERSION/ {print $2; exit}'
+      ZIP_NAME: "menustow-{{.VERSION}}.zip"
+      ZIP_PATH: "{{.DIST_DIR}}/{{.ZIP_NAME}}"
+    preconditions:
+      - sh: command -v xcrun
+        msg: "xcrun is required for notarization."
+      - sh: '[ -n "$NOTARY_PROFILE" ]'
+        msg: "Set NOTARY_PROFILE to a notarytool keychain profile name."
+    cmds:
+      - xcrun notarytool submit "{{.ZIP_PATH}}" --keychain-profile "$NOTARY_PROFILE" --wait
+
+  staple:
+    desc: Staple notarization to the app
+    deps: [archive]
+    cmds:
+      - xcrun stapler staple "{{.APP_PATH}}"
+
+  sparkle:appcast:
+    desc: Generate appcast.xml for Sparkle (requires generate_appcast)
+    deps: [package]
+    vars:
+      VERSION:
+        sh: xcodebuild -project {{.PROJECT}} -scheme {{.SCHEME}} -configuration {{.CONFIG}} -showBuildSettings | awk -F ' = ' '/MARKETING_VERSION/ {print $2; exit}'
+      ZIP_NAME: "menustow-{{.VERSION}}.zip"
+      ZIP_PATH: "{{.DIST_DIR}}/{{.ZIP_NAME}}"
+    preconditions:
+      - sh: command -v generate_appcast
+        msg: "generate_appcast not found. Install Sparkle's generate_appcast tool."
+      - sh: '[ -f "{{.SPARKLE_KEY}}" ]'
+        msg: "Missing {{.SPARKLE_KEY}} (Sparkle private key)."
+    cmds:
+      - generate_appcast --private-key "{{.SPARKLE_KEY}}" --output "{{.APPCAST_PATH}}" "{{.DIST_DIR}}"

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>menustow</title>
+        <item>
+            <title>0.1.0</title>
+            <pubDate>Sun, 11 Jan 2026 19:17:16 -0800</pubDate>
+            <link>https://menustow.com</link>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/lswank/menustow/releases/download/v0.1.0/menustow-0.1.0.zip" length="3146292" type="application/octet-stream" sparkle:edSignature="8KCFlszsoIOsVHV8zOuTfgIXBmQSY1STbX2NRPPJFgmt8BG+fg20GpYGqJgR5nmoOZoICGR6hFGa8cWWlHlNCA=="/>
+        </item>
+    </channel>
+</rss>
