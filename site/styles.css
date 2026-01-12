@@ -431,12 +431,6 @@ html.js .reveal.is-visible {
   animation-delay: 0.3s;
 }
 
-.stow-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
 
 .caption {
   margin-top: 16px;
